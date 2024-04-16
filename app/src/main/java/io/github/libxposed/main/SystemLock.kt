@@ -1,4 +1,4 @@
-package io.Clarisse.libxposed.Main
+package io.github.libxposed.main
 
 import android.annotation.SuppressLint
 import io.github.libxposed.api.XposedInterface

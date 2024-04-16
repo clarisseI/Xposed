@@ -11,6 +11,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven(url = "https://api.xposed.info/")
         mavenLocal {
             content {
                 includeGroup("io.github.libxposed")
@@ -22,6 +23,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Xposed Example"
+rootProject.name = "Xposed"
 
 include(":app")

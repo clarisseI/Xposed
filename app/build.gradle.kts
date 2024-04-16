@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "io.github.libxposed.example"
+    namespace = "io.github.libxposed.main"
     compileSdk = 34
     buildToolsVersion = "34.0.0"
 
@@ -53,4 +53,6 @@ android {
 dependencies {
     compileOnly(libs.libxposed.api)
     implementation(libs.libxposed.service)
+    compileOnly("de.robv.android.xposed:api:82")
+
 }

@@ -4,9 +4,11 @@
 
     <application
         android:description="@android:string/unknownName"
-        android:label="Xposed Example"
+        android:label="Xposed AirplaneMode"
         android:theme="@android:style/Theme.DeviceDefault"
         tools:ignore="MissingApplicationIcon">
+
+        <!-- Add this meta-data tag for Xposed -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -14,6 +16,7 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
     </application>
 </manifest>
