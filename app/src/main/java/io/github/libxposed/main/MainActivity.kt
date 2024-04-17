@@ -8,6 +8,8 @@ import io.github.libxposed.api.XposedModuleInterface.ModuleLoadedParam
 import io.github.libxposed.api.XposedModuleInterface.PackageLoadedParam
 
 
+
+
 private lateinit var module: MainActivity
 
 
@@ -38,13 +40,11 @@ class MainActivity(base: XposedInterface, param: ModuleLoadedParam) : XposedModu
         when (param.packageName) {
             "com.android.systemui" -> {
                 module.log("started ")
-                try{
-                    module.log("[MainActivity hooking to")
-                    SystemLock.hook(param, this)
+                    SystemLock.hook(param,this)
 
-                }catch (e:Exception){
-                    module.log("[MainActivity] ERROR:$e")
-                }
+                //}//catch (e:Exception){
+                  //  module.log("[MainActivity] ERROR:$e")
+                //}
             }
         }
     }
