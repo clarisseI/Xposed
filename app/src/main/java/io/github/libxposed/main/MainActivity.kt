@@ -42,11 +42,11 @@ class MainActivity(base: XposedInterface, param: ModuleLoadedParam) : XposedModu
                 try {
                     // hook the handleClick method of AirplaneModeTiler class
                     hook(
-                        param.classLoader.loadClass("com.android.systemui.qs.tiles.AirplaneModeTiler")
+                        param.classLoader.loadClass("com.android.systemui.qs.tiles.AirplaneModeTile")
                             .getDeclaredMethod("handleClick", View::class.java),
                         AirplaneModeHooker::class.java
                     )
-                    module.log("[MainActivity] Hooked ${param.packageName}")
+                    module.log("[MainActivity] Hooked $param.packageName")
                 } catch (e: Exception) {
                     module.log("[MainActivity] ERROR:$e")
                 }
@@ -65,12 +65,13 @@ class MainActivity(base: XposedInterface, param: ModuleLoadedParam) : XposedModu
                    //keyguardManager.isKeyguardSecure() to check for a secure lock (PIN, pattern, password).
                    //keyguardManager.isKeyguardLocked() to check for any lock (secure or non-secure).
                    val keyguardManager = context.getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
-                   val isPhoneLocked= keyguardManager.isKeyguardSecure || keyguardManager.isKeyguardLocked
+                   val isPhoneLocked= keyguardManager.isKeyguardLocked || keyguardManager.isKeyguardSecure
                    if(isPhoneLocked){
                        // prevent AirplaneMode execution by returning null
                        callback.returnAndSkip(null)
+                       module.log("phone locked can't Turn Airplane Mode on $AirplaneModeHooker ")
                    }
-
+                     module.log("Phone unlocked $isPhoneLocked")
 
 
                }
