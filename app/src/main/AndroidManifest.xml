@@ -4,7 +4,7 @@
 
     <application
         android:description="@android:string/unknownName"
-        android:label="Xposed AirplaneMode"
+        android:label="Xposed AirplaneHookTileMode"
         android:theme="@android:style/Theme.DeviceDefault"
         tools:ignore="MissingApplicationIcon">
 
